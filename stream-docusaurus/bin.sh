@@ -1,5 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
-DOCUSAURUS_PATH=$(dirname $(dirname $BASH_SOURCE)"/"$(readlink $BASH_SOURCE))
-SDK_PATH=$(pwd) yarn --cwd $DOCUSAURUS_PATH start
+# capture the current execution path
+export SDK_PATH=$(pwd) 
+
+# move execution to the package directory
+cd $(dirname $(dirname $0)"/"$(readlink $0))
+npm run start
 
